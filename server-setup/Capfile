@@ -7,7 +7,7 @@ role :chef_servers, servers
 role :chef_clients, clients
 
 namespace :chef do
-    before :install do
+    before "chef:install", "chef:configure" do
         unless exists?(:servers)
             raise "Please specify the hostnames to install the chef server"
         end
@@ -29,8 +29,17 @@ namespace :chef do
     end
 
     desc "Use chef to configure the chef server"
-    task :configure, :roles => :chef_servers do
+    task :configure:server, :roles => :chef_servers do
+        upload "solo.rb", "/tmp/solo.rb", :via => :scp
+        put "{ "recipes": "chef::server" }", "/tmp/chef.json". :via => :scp
+        run "sudo chef-solo -c /tmp/solo.rb -j /tmp/chef.json -r http://s3.amazonaws.com/chef-solo/bootstrap-latest.tar.gz"
+    end
 
+    desc "Use chef to configure the chef clients"
+    task :configure:clients, :roles => :chef_clients do
+        upload "solo.rb", "/tmp/solo.rb", :via => :scp
+        put "{ 'chef': { 'server_hostname': "#{server}" }, "recipes": "chef::client" }", "/tmp/chef.json". :via => :scp
+        run "sudo chef-solo -c /tmp/solo.rb -j /tmp/chef.json -r http://s3.amazonaws.com/chef-solo/bootstrap-latest.tar.gz"
     end
 
 end
