@@ -1,0 +1,41 @@
+
+
+set :servers, "sidney.spectro.jussieu.fr"
+set :clients, "pur.spectro.jussieu.fr"
+
+role :chef_servers, servers
+role :chef_clients, clients
+
+namespace :chef do
+    before :install do
+        unless exists?(:servers)
+            raise "Please specify the hostnames to install the chef server"
+        end
+    end
+
+    desc "Install the chef server on a host in order to configure it further"
+    task :install, :roles => :chef_servers  do   
+        run "sudo apt-get install ruby ruby1.8-dev libopenssl-ruby1.8 rdoc ri irb build-essential wget ssl-cert"
+        run <<-EOC
+        cd /tmp
+        wget http://rubyforge.org/frs/download.php/57643/rubygems-1.3.5.tgz
+        tar zxf rubygems-1.3.5.tgz
+        cd rubygems-1.3.5
+        sudo ruby setup.rb 
+        sudo ln -sfv /usr/bin/gem1.8 /usr/bin/gem
+        EOC
+        run "sudo gem sources -a http://gems.opscode.com"
+        run "sudo gem install ohai chef"
+    end
+
+    desc "Use chef to configure the chef server"
+    task :configure, :roles => :chef_servers do
+
+    end
+
+end
+
+
+#  set(:user) do
+#    Capistrano::CLI.ui.ask "Give me a ssh user: "
+#  end
