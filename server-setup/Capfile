@@ -1,50 +1,61 @@
 
+#pur.spectro.jussieu.fr (134.157.7.201)
+#tchao.spectro.jussieu.fr (134.157.7.205) 00:50:56:00:00:00 [ether] 
+#dhcp-221.lkb.upmc.fr (134.157.7.221) at 00:50:56:00:00:01 [ether] 
+#dhcp-223.lkb.upmc.fr (134.157.7.223) 223 00:50:56:00:00:02 [ether] 
 
-set :servers, "sidney.spectro.jussieu.fr"
-set :clients, "pur.spectro.jussieu.fr"
+set :servers, "tchao.spectro.jussieu.fr"
 
+
+role :chef_clients, "dhcp-221.lkb.upmc.fr"
 role :chef_servers, servers
-role :chef_clients, clients
+
+
+set :ssh_options, {:user => "root"}#, :password => :root_password}
 
 namespace :chef do
-    before "chef:install", "chef:configure" do
-        unless exists?(:servers)
-            raise "Please specify the hostnames to install the chef server"
+    # before "chef:install", "chef:configure" do
+    #     unless exists?(:servers)
+    #         raise "Please specify the hostnames to install the chef server"
+    #     end
+    # end
+
+    
+    task :ssh_copy do
+      users = ["root", "user"]
+      servers = find_servers_for_task(current_task)
+      servers.each do |s|
+        users.each do |user|
+          system "ssh-copy-id -i ~/.ssh/id_rsa #{user}@#{s.host}"
         end
+      end 
     end
 
     desc "Install the chef server on a host in order to configure it further"
-    task :install, :roles => :chef_servers  do   
-        run "sudo apt-get install ruby ruby1.8-dev libopenssl-ruby1.8 rdoc ri irb build-essential wget ssl-cert"
-        run <<-EOC
-        cd /tmp
-        wget http://rubyforge.org/frs/download.php/57643/rubygems-1.3.5.tgz
-        tar zxf rubygems-1.3.5.tgz
-        cd rubygems-1.3.5
-        sudo ruby setup.rb 
-        sudo ln -sfv /usr/bin/gem1.8 /usr/bin/gem
-        EOC
-        run "sudo gem sources -a http://gems.opscode.com"
-        run "sudo gem install ohai chef"
+    task :install do
+        #run "apt-get install -y ruby sudo ruby1.8-dev libopenssl-ruby1.8 rdoc ri irb build-essential wget ssl-cert"
+        run "wget -P /tmp http://rubyforge.org/frs/download.php/60718/rubygems-1.3.5.tgz"
+        run "cd /tmp && tar zxf rubygems-1.3.5.tgz"
+        run "cd /tmp/rubygems-1.3.5 && ruby setup.rb" 
+        run "ln -sfv /usr/bin/gem1.8 /usr/bin/gem"
+        run "gem sources -a http://gems.opscode.com"
+        run "gem install ohai chef"
     end
 
+
     desc "Use chef to configure the chef server"
-    task :configure:server, :roles => :chef_servers do
+    task :configure_server, :roles => :chef_servers do
         upload "solo.rb", "/tmp/solo.rb", :via => :scp
-        put "{ "recipes": "chef::server" }", "/tmp/chef.json". :via => :scp
+        put '{ "recipes": "chef::server" }', "/tmp/chef.json", :via => :scp
         run "sudo chef-solo -c /tmp/solo.rb -j /tmp/chef.json -r http://s3.amazonaws.com/chef-solo/bootstrap-latest.tar.gz"
     end
 
     desc "Use chef to configure the chef clients"
-    task :configure:clients, :roles => :chef_clients do
+    task :configure_clients, :roles => :chef_clients do
         upload "solo.rb", "/tmp/solo.rb", :via => :scp
-        put "{ 'chef': { 'server_hostname': "#{server}" }, "recipes": "chef::client" }", "/tmp/chef.json". :via => :scp
-        run "sudo chef-solo -c /tmp/solo.rb -j /tmp/chef.json -r http://s3.amazonaws.com/chef-solo/bootstrap-latest.tar.gz"
+        put '{ "chef": { "server_hostname": "#{servers}" }, "recipes": "chef::client" }', "/tmp/chef.json", :via => :scp
+        run "sudo chef-solo -l debug -c /tmp/solo.rb -j /tmp/chef.json -r http://s3.amazonaws.com/chef-solo/bootstrap-latest.tar.gz"
     end
-
 end
 
 
-#  set(:user) do
-#    Capistrano::CLI.ui.ask "Give me a ssh user: "
-#  end
