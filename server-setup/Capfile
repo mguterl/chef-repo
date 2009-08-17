@@ -7,7 +7,7 @@
 set :servers, "tchao.spectro.jussieu.fr"
 
 
-role :chef_clients, "dhcp-221.lkb.upmc.fr"
+role :chef_clients, "dhcp-223.lkb.upmc.fr"
 role :chef_servers, servers
 
 
@@ -20,7 +20,7 @@ namespace :chef do
     #     end
     # end
 
-    
+    desc "Copies ssh keys to all servers"
     task :ssh_copy do
       users = ["root", "user"]
       servers = find_servers_for_task(current_task)
@@ -33,7 +33,7 @@ namespace :chef do
 
     desc "Install the chef server on a host in order to configure it further"
     task :install do
-        #run "apt-get install -y ruby sudo ruby1.8-dev libopenssl-ruby1.8 rdoc ri irb build-essential wget ssl-cert"
+        run "apt-get install -y ruby sudo ruby1.8-dev libopenssl-ruby1.8 rdoc ri irb build-essential wget ssl-cert"
         run "wget -P /tmp http://rubyforge.org/frs/download.php/60718/rubygems-1.3.5.tgz"
         run "cd /tmp && tar zxf rubygems-1.3.5.tgz"
         run "cd /tmp/rubygems-1.3.5 && ruby setup.rb" 
@@ -54,7 +54,7 @@ namespace :chef do
     task :configure_clients, :roles => :chef_clients do
         upload "solo.rb", "/tmp/solo.rb", :via => :scp
         put '{ "chef": { "server_hostname": "#{servers}" }, "recipes": "chef::client" }', "/tmp/chef.json", :via => :scp
-        run "sudo chef-solo -l debug -c /tmp/solo.rb -j /tmp/chef.json -r http://s3.amazonaws.com/chef-solo/bootstrap-latest.tar.gz"
+        run "chef-solo -l debug -c /tmp/solo.rb -j /tmp/chef.json -r http://s3.amazonaws.com/chef-solo/bootstrap-latest.tar.gz"
     end
 end
 

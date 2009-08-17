@@ -1,0 +1,42 @@
+= DESCRIPTION:
+
+Installs a tftp server used for carrying out Debian netboot/PXE installs.
+
+= REQUIREMENTS:
+
+Debian or Ubuntu
+
+= ATTRIBUTES: 
+
+The file attributes/tftp-server.rb contains the following attributes"
+
+* options for the server source directory
+* options for server configuration
+
+= TEMPLATES:
+   
+  A default template options file for the server is in:
+
+ templates/default/tftpd-hpd.erb 
+
+
+= USAGE:
+
+This cookbook is designed to install a tftp server in order to boot images, installations and thin clients over the network.  TFTP has no authentication mechanisms.  
+
+= COMMAND:
+
+chef-solo -r tftp-server
+
+= TESTING:
+
+To start the service
+Debian:
+/etc/init.d/tftpd-hpa start
+
+To verify it is working
+
+root@laptop:/var/lib/tftpboot# netstat -a | grep tftp
+udp        0      0 *:tftp                  *:*
+
+It there is no response, the server isn't listening
