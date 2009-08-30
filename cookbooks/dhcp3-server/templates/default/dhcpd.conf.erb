@@ -1,0 +1,37 @@
+# DNS Configuration file
+
+ddns-update-style none;
+
+<%= unless option_domain_name.nil? %>
+option domain-name "<%= option_domain_name %>";
+<% end %>
+
+option domain-name-servers <%= option_dns1 %>, <%= option_dns2 %>;
+default-lease-time <%= default_lease_time %>;
+max-lease-time <%= max_lease_time %>;
+<% if authoritative %>
+authoritative;
+<% end %>
+log-facility <%= log_facility %>;
+
+
+# add netboot image resource
+subnet <%= subnet %> netmask <%= netmask %> {
+        range <%= range_start %> <%= range_end %>;
+        filename "<%= filename %>";
+        next-server <%= next_server %>;
+        option subnet-mask <%= subnet_mask %>;
+        option broadcast-address <%= broadcast_address %>;
+        option routers <%= routers %>;
+}
+
+
+
+
+ 
+
+
+
+
+
+

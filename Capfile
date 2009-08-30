@@ -4,11 +4,11 @@
 #dhcp-221.lkb.upmc.fr (134.157.7.221) at 00:50:56:00:00:01 [ether] 
 #dhcp-223.lkb.upmc.fr (134.157.7.223) 223 00:50:56:00:00:02 [ether] 
 
-set :servers, "tchao.spectro.jussieu.fr"
+
 
 
 role :chef_clients, "dhcp-223.lkb.upmc.fr"
-role :chef_servers, servers
+
 
 
 set :ssh_options, {:user => "root"}
