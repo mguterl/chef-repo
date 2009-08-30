@@ -1,2 +1,2 @@
 #!/bin/bash
-chef-solo -c solo.rb -j $1 -r /srv/chef/cookbooks
+chef-solo -c solo.rb -j $1
