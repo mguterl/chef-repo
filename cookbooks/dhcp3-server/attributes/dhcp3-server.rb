@@ -1,6 +1,6 @@
-option.domain_name nil
-option.dns1 
-option.dns2 
+#option.domain_name nil
+#option.dns1 
+#option.dns2 
 default_lease_time 86400
 max_lease_time 604800
 log_facility "local7"
