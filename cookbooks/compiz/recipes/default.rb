@@ -6,4 +6,4 @@
 #
 # All rights reserved - Do Not Redistribute
 
-package "compiz"
+package "compiz-kde"
