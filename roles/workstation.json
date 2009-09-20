@@ -5,5 +5,9 @@
   "json_class": "Chef::Role",
   "description": "Workstation setup for Kubuntu",
   "chef_type": "role",
-  "recipes": "emacs"
+  "recipes": [ 
+    "emacs", 
+    "vim", 
+    "compiz"
+   ]    
 }

@@ -1,2 +1,2 @@
 #!/bin/bash
-chef-solo -c solo.rb -j $1
+chef-solo -l debug -c solo.rb -j $1
