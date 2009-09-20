@@ -8,4 +8,12 @@
 #
 
 
+
 package "emacs-snapshot"
+package "ecb"
+package "cedet-common"
+package "cedet-contrib"
+package "exuberant-ctags"
+package "mmm-mode"
+package "semantic"
+package "speedbar"

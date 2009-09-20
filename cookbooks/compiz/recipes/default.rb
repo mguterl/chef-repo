@@ -7,3 +7,4 @@
 # All rights reserved - Do Not Redistribute
 
 package "compiz-kde"
+package "simple-ccsm"
