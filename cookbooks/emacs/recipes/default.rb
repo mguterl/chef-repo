@@ -17,3 +17,6 @@ package "exuberant-ctags"
 package "mmm-mode"
 package "semantic"
 package "speedbar"
+
+
+gem_package "rcodetools"
