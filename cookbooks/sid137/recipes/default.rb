@@ -18,7 +18,7 @@ user "sid137" do
   gid   "sid137"
   home  "/home/sid137" 
   shell "/bin/zsh"
-  password "password"
+  
 end
 
 group "admin" do
@@ -26,7 +26,7 @@ group "admin" do
   members "sid137"
   append true
 end
-
+agi ruby-
 
 # Configure home directory
 script "make typical directories" do
