@@ -8,6 +8,7 @@
   "recipes": [ 
     "emacs", 
     "vim", 
-    "compiz"
+    "compiz",
+    "rails"
    ]    
 }
