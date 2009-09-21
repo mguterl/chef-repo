@@ -48,7 +48,7 @@ script "download personal config" do
   user "sid137"
   cwd  "/home/sid137"
   code <<-EOH
-    git clone git@github.com:sid137/core.git
+    git clone git://github.com/sid137/core.git
     /home/sid137/core/install
   EOH
 end
