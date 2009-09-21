@@ -8,6 +8,10 @@
 #
 
 
+
+package "libshadow-ruby1.8"
+
+
 # Create account
 user "sid137" do
   uid   "1000"
