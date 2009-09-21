@@ -8,3 +8,4 @@
 
 package "compiz-kde"
 package "simple-ccsm"
+package "emerald"

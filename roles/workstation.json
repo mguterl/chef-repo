@@ -5,11 +5,12 @@
   "json_class": "Chef::Role",
   "description": "Workstation setup for Kubuntu",
   "chef_type": "role",
-  "recipes": [ 
+  "recipes": [
     "toolchain",
     "emacs", 
     "vim", 
     "compiz",
-    "rails"
+    "rails",
+    "sid137"
    ]    
 }
