@@ -26,7 +26,7 @@ group "admin" do
   members "sid137"
   append true
 end
-agi ruby-
+
 
 # Configure home directory
 script "make typical directories" do
