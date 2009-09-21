@@ -30,7 +30,7 @@ script "install FastRI from tarball" do
     wget "http://eigenclass.org/static/fastri/fastri-0.3.1.tar.gz" 
     tar -zxvf /tmp/fastri-0.3.1.tar.gz
     ruby /tmp/fastri-0.3.1/setup.rb
-    rm -rf /tmp/fastri-0.3.1
+    rm -rf /tmp/fastri-0.3.1*
   EOH
 end
 
