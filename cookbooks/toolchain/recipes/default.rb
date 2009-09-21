@@ -8,4 +8,4 @@
 #
 
 package "build-essential"
-package "mkmf"
+package "ruby1.8-dev"
