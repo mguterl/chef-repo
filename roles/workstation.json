@@ -6,6 +6,7 @@
   "description": "Workstation setup for Kubuntu",
   "chef_type": "role",
   "recipes": [ 
+    "toolchain"
     "emacs", 
     "vim", 
     "compiz",

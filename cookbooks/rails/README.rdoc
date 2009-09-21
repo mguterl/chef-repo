@@ -2,6 +2,8 @@
 
 = REQUIREMENTS:
 
+Requires ability to compile native extensions
+
 = ATTRIBUTES: 
 
 = USAGE:

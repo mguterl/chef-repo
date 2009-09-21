@@ -19,4 +19,5 @@ package "semantic"
 package "speedbar"
 
 
+gem_package "fastri"
 gem_package "rcodetools"
