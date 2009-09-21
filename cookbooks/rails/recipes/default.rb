@@ -19,7 +19,10 @@ end
 gem_package "cucumber"
 gem_package "facebooker"
 gem_package "haml"
-gem_package "mislav-will_paginate"
+gem_package "mislav-will_paginate"  do
+  source "http://gems.github.com"
+end
+
 gem_package "mongrel"
 gem_package "nokogiri"
 gem_package "passenger"
