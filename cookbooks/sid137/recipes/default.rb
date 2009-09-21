@@ -10,7 +10,7 @@
 
 
 package "libshadow-ruby1.8"
-
+package "zsh"
 
 # Create account
 user "sid137" do
