@@ -9,3 +9,5 @@
 
 package "build-essential"
 package "ruby1.8-dev"
+package "libxml2"
+package "libxml2-dev"
