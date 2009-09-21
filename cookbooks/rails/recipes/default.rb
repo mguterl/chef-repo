@@ -11,7 +11,11 @@ gem_package "rails"
 gem_package "authlogic"
 gem_package "bcrypt-ruby"
 gem_package "capistrano"
-gem_package "chriseppstein-compass"
+gem_package "chriseppstein-compass" do
+  source "http://gems.github.com"
+end
+
+
 gem_package "cucumber"
 gem_package "facebooker"
 gem_package "haml"
