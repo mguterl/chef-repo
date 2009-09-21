@@ -8,3 +8,4 @@
 #
 
 package "build-essential"
+package "mkmf"
