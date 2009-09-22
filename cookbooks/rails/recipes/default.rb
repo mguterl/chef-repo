@@ -6,29 +6,28 @@
 #
 # All rights reserved - Do Not Redistribute
 
+gems = %w[ 
+rails
+authlogic
+bcrypt-ruby
+capistrano
+chriseppstein-compass
+cucumber
+facebooker
+haml
+mislav-will_paginate
+mongrel
+nokogiri
+passenger
+remarkable
+remarkable_rails
+rspec
+rspec-rails
+staticmatic
+]
 
-gem_package "rails"
-gem_package "authlogic"
-gem_package "bcrypt-ruby"
-gem_package "capistrano"
-gem_package "chriseppstein-compass" do
-  source "http://gems.github.com"
+gems.each do |gem|
+  gem_package "mislav-will_paginate"  do
+    source "http://gems.github.com"
+  end
 end
-
-
-gem_package "cucumber"
-gem_package "facebooker"
-gem_package "haml"
-gem_package "mislav-will_paginate"  do
-  source "http://gems.github.com"
-end
-
-gem_package "mongrel"
-gem_package "nokogiri"
-gem_package "passenger"
-
-gem_package "remarkable"
-gem_package "remarkable_rails"
-gem_package "rspec"
-gem_package "rspec-rails"
-gem_package "staticmatic"
