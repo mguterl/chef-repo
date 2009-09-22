@@ -27,7 +27,7 @@ staticmatic
 ]
 
 gems.each do |gem|
-  gem_package "mislav-will_paginate"  do
+  gem_package gem  do
     source "http://gems.github.com"
   end
 end
