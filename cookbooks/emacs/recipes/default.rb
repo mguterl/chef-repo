@@ -9,7 +9,9 @@
 
 
 
-package "emacs-snapshot"
+package "emacs-snapshot" do
+  action :upgrade
+end
 package "ecb"
 package "cedet-common"
 package "cedet-contrib"
