@@ -7,7 +7,5 @@
 # All rights reserved - Do Not Redistribute
 
 
-
-execute "apt-get update"
 execute "apt-get dist-upgrade -f -y"
 execute "apt-get upgrade -f -y"
