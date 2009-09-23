@@ -6,6 +6,13 @@
 #
 # All rights reserved - Do Not Redistribute
 
-package "python2.6"
-package "python-numpy"
-package "python-scipy"
+packages = %W[ 
+python2.6
+python-numpy
+python-scipy
+ipython
+]
+
+packages.each do |pkg|
+  package pkg 
+end

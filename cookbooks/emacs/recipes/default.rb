@@ -8,20 +8,25 @@
 #
 
 
+include_recipe "python"
 
 package "emacs-snapshot" do
   action :upgrade
 end
-package "ecb"
-package "cedet-common"
-package "cedet-contrib"
-package "exuberant-ctags"
-package "mmm-mode"
-package "semantic"
-package "speedbar"
+packages = %w[
+ecb
+cedet-common
+cedet-contrib
+exuberant-ctags
+mmm-mode
+semantic
+speedbar
+]
 
+packages.each do |pkg|
+  package pkg
+end
 
-#gem_package "fastri"
 
 
 
