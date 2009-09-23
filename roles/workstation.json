@@ -6,12 +6,14 @@
   "description": "Workstation setup for Kubuntu",
   "chef_type": "role",
   "recipes": [
+    "apt",
     "base",
     "toolchain",
     "emacs", 
     "vim", 
     "compiz",
     "rails",
-    "sid137"
+    "sid137",
+    "upgrade",
    ]    
 }

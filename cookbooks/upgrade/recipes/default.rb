@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: apt
+# Cookbook Name:: upgrade
 # Recipe:: default
 #
 # Copyright 2009, Sidney Burks
@@ -9,3 +9,5 @@
 
 
 execute "apt-get update"
+execute "apt-get dist-upgrade"
+execute "apt-get upgrade"
