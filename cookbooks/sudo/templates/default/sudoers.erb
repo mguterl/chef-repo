@@ -28,5 +28,5 @@ root	ALL=(ALL) ALL
 %admin ALL=(ALL) ALL
 
 <% @sudo_groups.each do |group| -%>
-%<%= group %>ALL=(ALL) NOPASSWD: ALL
+%<%= group %> ALL=(ALL) NOPASSWD: ALL
 <% end -%>
