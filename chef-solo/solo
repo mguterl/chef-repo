@@ -1,2 +1,4 @@
 #!/bin/bash
-sudo chef-solo -l debug -c solo.rb -j ${1:=workstation.json}
+
+git pull
+sudo chef-solo -l debug -c solo.rb -j $1

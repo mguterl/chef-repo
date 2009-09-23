@@ -9,5 +9,5 @@
 
 
 execute "apt-get update"
-execute "apt-get dist-upgrade"
-execute "apt-get upgrade"
+execute "apt-get dist-upgrade -f -y"
+execute "apt-get upgrade -f -y"
