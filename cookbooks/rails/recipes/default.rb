@@ -6,6 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 
+execute "gem sources -a http://gems.github.com"
+
 gems = %w[ 
 rails
 authlogic
@@ -28,6 +30,6 @@ staticmatic
 
 gems.each do |gem|
   gem_package gem  do
-    source "http://gems.github.com"
+#    source "http://gems.github.com"
   end
 end
