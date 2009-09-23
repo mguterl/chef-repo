@@ -15,7 +15,7 @@ Defaults	env_reset
 
 # User privilege specification
 root	ALL=(ALL) ALL
-<%   @sudo_users.each do |user| -%>
+<% @sudo_users.each do |user| -%>
 <%= user %> ALL=(ALL) ALL
 <% end -%>
 
@@ -28,5 +28,5 @@ root	ALL=(ALL) ALL
 %admin ALL=(ALL) ALL
 
 <% @sudo_groups.each do |group| -%>
-<%= group %>ALL=(ALL) ALL
+%<%= group %>ALL=(ALL) NOPASSWD: ALL
 <% end -%>
