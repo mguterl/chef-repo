@@ -56,7 +56,7 @@ script "download personal config" do
     cd ~/core 
     git pull
     git submodule update --init
-    co .emacs/rinari
+    cp .emacs/rinari
     git submodule update --init
   
   EOH
