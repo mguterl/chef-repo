@@ -55,8 +55,8 @@ script "download personal config" do
     /home/sid137/core/install
     cd ~/core 
     git pull
-    git submodules init
-    git submodules update
+    git submodule init
+    git submodule update
   EOH
 end
 
