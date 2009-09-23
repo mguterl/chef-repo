@@ -55,9 +55,12 @@ script "download personal config" do
     /home/sid137/core/install
     cd ~/core 
     git pull
-    git submodule init
-    git submodule update
+    git submodule update --init
+    co .emacs/rinari
+    git submodule update --init
+  
   EOH
+  # use git subomdule update --init --recursoive after git 1.6.5
 end
 
 execute "gnerate ssh keys" do
