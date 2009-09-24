@@ -10,6 +10,7 @@ packages = %W[
 python2.6
 python-numpy
 python-scipy
+python-sexy
 ipython
 ]
 
