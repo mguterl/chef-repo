@@ -6,6 +6,10 @@
 #
 # All rights reserved - Do Not Redistribute
 
+include_recipe "base"
+include_recipe "jungledisk"
+
+
 packages = %w[
 gimp
 gparted
@@ -24,4 +28,5 @@ packages.each do |pkg|
 end
 
 
-#ipbloca, jungledisk, truecrypt
+#ipbloca, truecrypt
+

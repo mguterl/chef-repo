@@ -11,6 +11,7 @@ include_recipe "toolchain"
 include_recipe "zsh"
 
 packages = %w[
+  fuse-utils
   coreutils
   git-core
   screen
