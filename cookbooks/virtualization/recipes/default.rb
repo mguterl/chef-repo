@@ -8,14 +8,11 @@
 
 
 packages = %w[
-kvm
 kvm-pxe
-virt-manager
-libvirt-bin
-ubuntu-vm-builder
 qemu
 bridge-utils
-virt-viewer
+ubuntu-virt-server
+ubuntu-virt-mmgmt
 ]
 
 packages.each do |pkg|
