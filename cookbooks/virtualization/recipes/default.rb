@@ -12,7 +12,7 @@ kvm-pxe
 qemu
 bridge-utils
 ubuntu-virt-server
-ubuntu-virt-mmgmt
+ubuntu-virt-mgmt
 ]
 
 packages.each do |pkg|
