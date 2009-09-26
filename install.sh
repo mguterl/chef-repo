@@ -8,3 +8,6 @@ curl http://apt.opscode.com/packages@opscode.com.gpg.key | apt-key add -
 apt-get update
 
 aptitude install ohai chef rubygems -y
+git clone git://github.com/sid137/chef-repo.git /tmp
+cd /tmp/chef-repo/chef-solo
+
