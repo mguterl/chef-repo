@@ -34,6 +34,8 @@ packages = %w[
   ntfsprogs
   libntfs-3g-dev
   reiserfsprogs
+
+  lsof
 ]
 
 
