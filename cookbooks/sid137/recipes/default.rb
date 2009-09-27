@@ -21,7 +21,6 @@ user "sid137" do
   gid   "sid137"
   home  "/home/sid137" 
   shell "/bin/zsh"
-  
 end
 
 group "admin" do
@@ -53,12 +52,6 @@ script "download personal config" do
   code <<-EOH
     git clone git://github.com/sid137/core.git
     /home/sid137/core/install
-    cd ~/core 
-    git pull
-    git submodule update --init
-    cd .emacs2/rinari
-    git submodule update --init
-  
   EOH
   # use git subomdule update --init --recursoive after git 1.6.5
 end
