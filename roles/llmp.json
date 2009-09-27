@@ -8,7 +8,7 @@
   "recipes": [
     "lighttpd",
     "mysql",
-	"php::modules"
+    "php::modules",
     "php::lighttpd"
    ]    
 }
