@@ -15,5 +15,6 @@ end
 
 service "lighttpd" do
 	enabled true
+	supports :status => false, :restart => true, :reload => true
 	action :start
 end
