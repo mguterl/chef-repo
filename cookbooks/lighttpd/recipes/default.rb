@@ -12,3 +12,8 @@ package "lighttpd"
 template "/etc/lighttpd/lighttpd.conf" do
   source "lighttpd.conf.erb"
 end
+
+service "lighttpd" do
+	enabled true
+	action :start
+end

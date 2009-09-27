@@ -8,6 +8,6 @@
   "recipes": [
     "nginx",
     "mysql",
-    "php"
+    "php::nginx"
    ]    
 }

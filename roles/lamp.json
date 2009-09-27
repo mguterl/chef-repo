@@ -8,6 +8,6 @@
   "recipes": [
     "apache",
     "mysql",
-    "php"
+    "php::apache"
    ]    
 }
