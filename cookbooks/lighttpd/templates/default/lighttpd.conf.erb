@@ -14,7 +14,7 @@ server.modules              = (
             "mod_alias",       
             "mod_accesslog",   
             "mod_compress",    
-			"mod_fastcgi",
+            "mod_fastcgi",
 #           "mod_rewrite",     
 #           "mod_redirect",    
 #           "mod_evhost",      
@@ -87,7 +87,7 @@ server.pid-file            = "/var/run/lighttpd.pid"
 
 ## virtual directory listings
 dir-listing.encoding        = "utf-8"
-server.dir-listing          = "enable"
+#server.dir-listing          = "enable"
 
 ## send unhandled HTTP-header headers to error-log
 #debug.dump-unknown-headers  = "enable"           
@@ -166,8 +166,14 @@ $HTTP["remoteip"] =~ "127.0.0.1" {
         }
 }
 
-
-fastcgi.server = ( ".php" => ((
-                     "bin-path" => "/usr/bin/php5-cgi",
-                     "socket" => "/tmp/php.socket"
-                 )))
+#### fastcgi module
+## read fastcgi.txt for more info
+## for PHP don't forget to set cgi.fix_pathinfo = 1 in the php.ini
+fastcgi.server             = ( ".php" =>
+                               ( "localhost" =>
+                                 (
+                                   "socket" => "/tmp/php.socket",
+                                   "bin-path" => "/usr/bin/php-cgi"
+                                 )
+                               )
+                            )

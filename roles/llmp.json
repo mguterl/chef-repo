@@ -1,12 +1,12 @@
 {
-  "name": "lamp",
+  "name": "llmp",
   "default_attributes": { },
   "override_attributes": { },
   "json_class": "Chef::Role",
-  "description": "LAMP Server setup - Linux, Apache, MySQL,  PHP",
+  "description": "LLMP Server setup - Linux, Lighttpd, MySQL,  PHP",
   "chef_type": "role",
   "recipes": [
-    "apache",
+    "lighttpd",
     "mysql",
     "php"
    ]    

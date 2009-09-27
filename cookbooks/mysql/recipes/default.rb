@@ -10,6 +10,7 @@
 packages = %w[
 mysql-server
 mysql-client
+mysql-common
 ]
 
 

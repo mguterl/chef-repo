@@ -3,10 +3,10 @@
   "default_attributes": { },
   "override_attributes": { },
   "json_class": "Chef::Role",
-  "description": "LAMP Server setup - Linux, Apache, MySQL,  PHP",
+  "description": "LAMP Server setup - Linux, nGinx, MySQL, PHP",
   "chef_type": "role",
   "recipes": [
-    "apache",
+    "nginx",
     "mysql",
     "php"
    ]    
