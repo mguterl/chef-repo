@@ -16,3 +16,5 @@ mysql-client
 packages.each do |pkg|
   package pkg
 end
+
+#execute "mysqladmin -u root password mypass"

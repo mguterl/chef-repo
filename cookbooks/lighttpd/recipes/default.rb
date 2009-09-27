@@ -8,3 +8,7 @@
 
 
 package "lighttpd"
+
+template "/etc/lighttpd/lighttpd.conf" do
+  source "lighttpd.conf.erb"
+end

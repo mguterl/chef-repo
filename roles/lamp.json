@@ -7,6 +7,8 @@
   "chef_type": "role",
   "recipes": [
     "lighttpd",
-	"mysql"
+	"mysql",
+    "php5"
+
    ]    
 }
