@@ -6,6 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 
+include_recipe "lighttpd" 
 
 packages = %w[
 php5-cli
@@ -82,4 +83,8 @@ execute "echo 'cgi.fix_pathinfo = 1' >> /etc/php5/cgi/php.ini"
 template "/var/www/index.php" do
   source "index.php.erb"
   mode "755"
+end
+
+service "lighttpd" do
+	action :restart
 end
