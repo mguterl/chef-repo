@@ -6,6 +6,7 @@
   "description": "LAMP Server setup - PHP",
   "chef_type": "role",
   "recipes": [
-    "lighttpd"
+    "lighttpd",
+	"mysql"
    ]    
 }
