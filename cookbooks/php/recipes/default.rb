@@ -18,5 +18,8 @@ packages.each do |pkg|
 	package pkg
 end
 
-#execute "echo 'cgi.fix_pathinfo = 1' >> /etc/php5/cgi/php.ini"
+execute "echo 'cgi.fix_pathinfo = 1' >> /etc/php5/cgi/php.ini"
 
+template "/var/www/index.php" do
+  source "index.php.erb"
+end

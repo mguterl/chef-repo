@@ -8,6 +8,6 @@
   "recipes": [
     "lighttpd",
     "mysql",
-    "php5"
+    "php"
    ]    
 }
