@@ -8,7 +8,7 @@
 
 
 packages = %w[
-libapache3-mod-php5
+libapache2-mod-php5
 php5-cli
 php5-common
 php5-cgi
