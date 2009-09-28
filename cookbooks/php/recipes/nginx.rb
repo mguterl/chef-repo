@@ -7,10 +7,9 @@
 # All rights reserved - Do Not Redistribute
 
 include_recipe "php"
-include_recipe "lighttpd" 
+include_recipe "nginx" 
 
-execute "echo 'cgi.fix_pathinfo = 1' >> /etc/php5/cgi/php.ini"
-
+package "php5-xcache"
 
 service "lighttpd" do
 	action :restart

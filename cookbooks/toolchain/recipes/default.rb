@@ -7,13 +7,24 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "build-essential"
-package "binutils-doc"
-package "autoconf"
-package "flex"
-package "bison"
-package "ruby1.8-dev"
-package "libxml2"
-package "libxml2-dev"  #nokogiri gem
-package "libxslt1.1"
-package "libxslt1-dev"  #nokogiri gem
+
+packages = %w[
+build-essential
+binutils-doc
+autoconf
+automake
+libtool 
+help2man
+flex
+bison
+ruby1.8-dev
+libxml2
+libxml2-dev  
+libxslt1.1
+libxslt1-dev  
+]
+
+
+packages.each do |pkg|
+	package pkg
+end

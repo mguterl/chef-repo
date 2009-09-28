@@ -1,18 +1,18 @@
 #
-# Cookbook Name:: openssl
+# Cookbook Name:: spamass
 # Recipe:: default
 #
 # Copyright 2009, Sidney Burks
 #
 # All rights reserved - Do Not Redistribute
+#
 
 packages = %w[
-openssl
-ssl-cert
-libssl-dev
+spamassassin
+spamc
 ]
 
-packages.each do |pkg| 
-	package pkg
+packages.each do |pkg|
+	    package pkg
 end
 
