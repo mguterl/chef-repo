@@ -22,6 +22,11 @@ libxml2
 libxml2-dev  
 libxslt1.1
 libxslt1-dev  
+zlib1g 
+zlib1g-dev 
+zlibc
+wget 
+curl
 ]
 
 

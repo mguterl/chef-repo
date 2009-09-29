@@ -10,6 +10,8 @@ packages = %w[
 openssl
 ssl-cert
 libssl-dev
+libopenssl-ruby 
+libopenssl-ruby1.9
 ]
 
 packages.each do |pkg| 

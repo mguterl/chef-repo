@@ -16,17 +16,11 @@ packages = %w[
   git-core
   screen
   screen-profiles
-  ssl-cert
   gzip
   p7zip
   p7zip-full
   unzip
   unrar
-  wget
-  curls
-  zlib1g
-  zlib1g-dev  
-
   hfsplus
   hfsprogs
   hfsutils
@@ -34,7 +28,6 @@ packages = %w[
   ntfsprogs
   libntfs-3g-dev
   reiserfsprogs
-
   lsof
 ]
 
