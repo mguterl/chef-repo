@@ -20,6 +20,7 @@ gparted
 imagemagick
 ktorrent
 skype
+firefox
 ]
 
 

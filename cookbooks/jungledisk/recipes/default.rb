@@ -9,7 +9,7 @@
 
 
 remote_file "/tmp/jungledisk.tar.gz" do
-  source "http://downloads.jungledisk.com/jungledisk/jungledisk64-262a.tar.gz"
+  source "http://downloads.jungledisk.com/jungledisk/jungledisk64-262b.tar.gz"
 end
 
 script "install jungledisk" do
