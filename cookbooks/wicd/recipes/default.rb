@@ -24,6 +24,6 @@ end
 service "wicd" do
   supports :restart => true, :reload => true
   reload_command "/etc/init.d/wicd force-reload"
-  action[:enable, :reload, :restart]
+  action [ :enable, :reload, :restart ]
 end
 
