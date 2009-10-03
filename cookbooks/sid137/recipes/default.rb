@@ -65,12 +65,8 @@ end
 
 
 # sets all files in my home dir to owner/group sid137
-script "fix permissions" do
-  interpreter "bash"
-  user "root"
-  cwd "/home/sid137"
-  code <<-EOH
-	find * -exec chgrp sid137 {} \;
-	find * -exec chown sid137 {} \; 
-  EOH
-end
+
+execute "find * -exec chgrp sid137 {} \;"
+execute "find * -exec chown sid137 {} \;"
+
+
