@@ -17,7 +17,7 @@ package "wine"
 script "wine_directory" do
   interpreter "bash"
   code <<-EOH
-  mkdir -p /home/sid137/.wine/drive_c/window/system
+  mkdir -p /home/sid137/.wine/drive_c/windows/system
   chown sid137 /home/sid137/.wine
   chgrp sid137 /home/sid137/.wine
 
