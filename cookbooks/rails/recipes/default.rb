@@ -8,6 +8,9 @@
 
 execute "gem sources -a http://gems.github.com"
 
+include_recipe "ruby" 
+include_recipe "sqlite"
+
 gems = %w[ 
 rails
 authlogic

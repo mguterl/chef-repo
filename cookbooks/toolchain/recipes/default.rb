@@ -27,8 +27,14 @@ zlib1g-dev
 zlibc
 wget 
 curl
-]
 
+libc6 
+libpcre3 
+libpcre3-dev 
+libpcrecpp0 
+libssl0.9.8 
+]
+include_recipe "openssl"
 
 packages.each do |pkg|
 	package pkg

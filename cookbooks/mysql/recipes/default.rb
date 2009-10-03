@@ -11,6 +11,10 @@ packages = %w[
 mysql-server
 mysql-client
 mysql-common
+
+libmysql-ruby
+libmysql-ruby1.8 
+
 ]
 
 
