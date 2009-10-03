@@ -10,6 +10,7 @@
 
 remote_file "/tmp/jungledisk.tar.gz" do
   source "http://downloads.jungledisk.com/jungledisk/jungledisk64-262b.tar.gz"
+  only_if do ! File.exists?('/tmp/jungledisk.tar.gz') end
 end
 
 script "install jungledisk" do
