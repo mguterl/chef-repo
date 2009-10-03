@@ -1,0 +1,21 @@
+{
+  "name": "sid137",
+  "default_attributes": { },
+  "override_attributes": { },
+  "json_class": "Chef::Role",
+  "description": "Workstation setup for Kubuntu",
+  "chef_type": "role",
+  "recipes": [
+    "apt",
+    "base",
+    "toolchain",
+	"desktop", 
+    "emacs", 
+    "vim", 
+    "compiz",
+    "rails",
+    "sid137",
+	"virtualization",
+    "upgrade"
+   ]    
+}
