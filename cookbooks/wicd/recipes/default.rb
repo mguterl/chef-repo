@@ -27,5 +27,5 @@ service "wicd" do
   action [ :enable, :reload, :restart ]
 end
 
-
+execute "/etc/init.d/wicd restart"
 execute "sleep 20"
