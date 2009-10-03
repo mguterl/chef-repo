@@ -71,6 +71,6 @@ script "fix permissions" do
   cwd "/home/sid137"
   code <<-EOH
 	find * -exec chgrp sid137 {} \;
-	find * -exec chown sid137 {} \;
+	find * -exec chown sid137 {} \; 
   EOH
 end
