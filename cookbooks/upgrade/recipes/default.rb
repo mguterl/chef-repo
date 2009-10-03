@@ -7,5 +7,5 @@
 # All rights reserved - Do Not Redistribute
 
 
-execute "apt-get dist-upgrade -f -y"
-execute "apt-get upgrade -f -y"
+execute "apt-get dist-upgrade -q -m f -y"
+execute "apt-get upgrade -q -m -f -y"
