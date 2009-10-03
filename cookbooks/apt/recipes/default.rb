@@ -8,4 +8,4 @@
 
 
 
-execute "apt-get update"
+execute "apt-get update -q -m -f -y"
