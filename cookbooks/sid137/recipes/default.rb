@@ -66,7 +66,7 @@ end
 
 # sets all files in my home dir to owner/group sid137
 
-execute "find * -exec chgrp sid137 {} \;"
-execute "find * -exec chown sid137 {} \;"
+execute 'find * -exec chgrp sid137 {} \;'
+execute 'find * -exec chown sid137 {} \;'
 
 
