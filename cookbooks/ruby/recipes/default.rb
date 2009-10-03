@@ -8,7 +8,7 @@
 
 
 packages = %w[
-riby 
+ruby 
 ri 
 rdoc 
 irb 
