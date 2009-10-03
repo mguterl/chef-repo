@@ -20,7 +20,7 @@ script "install jungledisk" do
     cp /tmp/jungledisk /usr/bin
     cp /tmp/jungledisk/junglediskmonitor /usr/bin
     chmod o+rw /dev/fuse                                               
-    chmod o+rw /usr/bin/fusermount  
+    chmod o+rw /bin/fusermount  
   EOH
 end
 
