@@ -9,6 +9,8 @@
 
 package "wine"
 
+directory "/home/sid137/.wine/drive_c/windows/system"
+
 remote_file "/home/sid137/.wine/drive_c/windows/system/MSVBVM60.DLL" do
   source "MSVBVM60.DLL"
   mode "0755"
