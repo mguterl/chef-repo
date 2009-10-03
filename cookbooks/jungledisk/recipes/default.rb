@@ -33,6 +33,7 @@ end
 
 execute "mkdir -p /home/sid137/rackspace/elib /home/sid137/rackspace/cred /home/sid137/rackspace/biblio /home/sid137/rackspace/phddata"
 
+directory "/home/sid137/.jungledisk"
 
 remote_file "/home/sid137/.jungledisk/jungledisk-settings.xml" do
   source "jungledisk-settings.xml"
