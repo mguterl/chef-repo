@@ -56,8 +56,20 @@ script "download personal config" do
   # use git subomdule update --init --recursoive after git 1.6.5
 end
 
-execute "gnerate ssh keys" do
+execute "generate ssh keys" do
   user "sid137"
   creates "/home/sid137/.ssh/id_rsa"  
   command "ssh-keygen -t rsa -f /home/sid137/.ssh/id_rsa" 
+end
+
+
+
+# sets all files in my home dir to owner/group sid137
+script "fix permissions" do
+  interpreter "bash"
+  cwd "/home/sid137"
+  code <<-EOH
+	find * -exec chgrp sid137 {} \;
+    find * -exec chown sid137 {} \;
+  EOH
 end
