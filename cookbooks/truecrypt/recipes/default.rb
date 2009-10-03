@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 
 
-dpkg_package "truecrypt.deb" do
+remote_file "/tmp/truecrypt.deb" do
   source "truecrypt.deb"
+end
+
+dpkg_package "truecrypt.deb" do
+  source "/tmp/truecrypt.deb"
 end
