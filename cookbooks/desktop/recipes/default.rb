@@ -1,5 +1,4 @@
-#
-# Cookbook Name:: desktop
+## Cookbook Name:: desktop
 # Recipe:: default
 #
 # Copyright 2009, Sidney Burks
@@ -12,7 +11,7 @@ include_recipe "jungledisk"
 include_recipe "truecrypt"
 include_recipe "wine"
 include_recipe "compiz"
-include_recipe "wicd"
+#include_recipe "wicd"
 
 packages = %w[
 gimp
@@ -31,5 +30,5 @@ packages.each do |pkg|
 end
 
 
-#ipbloca, truecrypt
+#ipbloca
 
