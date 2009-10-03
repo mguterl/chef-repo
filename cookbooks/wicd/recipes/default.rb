@@ -18,7 +18,7 @@ template "/etc/wicd/wireless-settings.conf" do
 end
 
 template "/etc/wicd/wired-settings.conf" do
-  souce "wired-settings.conf.erb"
+  source "wired-settings.conf.erb"
 end
 
 service "wicd" do
