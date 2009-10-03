@@ -10,8 +10,8 @@ include_recipe "swig"
 
 packages = %w[
 sqlite3 
-libsqlite3-ruby 
 libsqlite3-dev
+libsqlite3-ruby 
 ]
 
 gem_package "sqlite3-ruby" 
