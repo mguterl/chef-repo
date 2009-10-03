@@ -28,13 +28,14 @@ packages.each do |pkg|
 end
 
 
-
+remote_file "/tmp/fastri.tar.gz" do
+  source "fastri-0.3.1.tar.gz"
+end
 
 script "install FastRI from tarball" do
   interpreter "bash"
   cwd "/tmp"
   code <<-EOH
-    wget "http://eigenclass.org/static/fastri/fastri-0.3.1.tar.gz" 
     tar -zxvf /tmp/fastri-0.3.1.tar.gz
     ruby /tmp/fastri-0.3.1/setup.rb
     rm -rf /tmp/fastri-0.3.1*
