@@ -8,7 +8,7 @@
 
 include_recipe "base"
 include_recipe "jungledisk"
-
+include_recipe "wine"
 
 packages = %w[
 gimp
@@ -17,7 +17,6 @@ imagemagick
 ktorrent
 skype
 wicd
-wine
 ]
 
 

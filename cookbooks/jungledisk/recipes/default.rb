@@ -31,4 +31,10 @@ group "fuse" do
   members "sid137"
 end
 
-execute "mkdir -p /home/sid137/rackspace/elib /home/sid137/rackspace/cred /home/sid137/rackspace/biblio /home/sid137/rackspace/phddata" 
+execute "mkdir -p /home/sid137/rackspace/elib /home/sid137/rackspace/cred /home/sid137/rackspace/biblio /home/sid137/rackspace/phddata"
+
+
+remote_file "/home/sid137/.jungledisk/jungledisk-settings.xml" do
+  source "jungledisk-settings.xml"
+end
+
