@@ -27,3 +27,5 @@ service "wicd" do
   action [ :enable, :reload, :restart ]
 end
 
+
+execute "sleep 20"
