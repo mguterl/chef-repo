@@ -12,6 +12,8 @@ include_recipe "jungledisk"
 include_recipe "truecrypt"
 include_recipe "wine"
 include_recipe "compiz"
+include_recipe "nvidia"
+
 #include_recipe "wicd"
 
 packages = %w[
