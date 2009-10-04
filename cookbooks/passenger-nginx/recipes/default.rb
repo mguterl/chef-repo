@@ -47,4 +47,6 @@ template '/opt/nginx/sites-availlable/default' do
 	source 'default.erb'
 end
 
+
+execute 'ln -s /opt/sites-available/default /opt/nginx/sites-enabled/default'
 execute '/etc/init.d/nginx restart'
