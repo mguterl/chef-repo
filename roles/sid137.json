@@ -14,6 +14,7 @@
     "vim", 
     "compiz",
     "rails",
+	"passenger-nginx",
     "sid137",
 	"virtualization",
     "upgrade"
