@@ -32,6 +32,7 @@ end
 
 
 directories = %w[
+/home/sid137/projects
 /home/sid137/tmp
 ]
 
