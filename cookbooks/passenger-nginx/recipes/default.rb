@@ -10,11 +10,11 @@ include_recipe "openssl"
 include_recipe "rails"
 
 
-execute "passenger-install-nginx-module --auto-download --auto --prefix=/opt/nginx
+execute "passenger-install-nginx-module --auto-download --auto --prefix=/opt/nginx" 
 
-template "/etc/init.d/nginx" do
-  source "init.d.erb"
-  mode   "755"
+template '/etc/init.d/nginx' do
+  source 'init.d.erb'
+  mode   '755'
 end  
 
 
