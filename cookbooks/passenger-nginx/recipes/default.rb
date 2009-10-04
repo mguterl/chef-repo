@@ -10,7 +10,7 @@ include_recipe "openssl"
 include_recipe "rails"
 
 
-execute "passenger-install-nginx-module --auto-download --auto --prefix=/opt/nginx" 
+execute '/var/lib/gems/1.8/bin/passenger-install-nginx-module --auto-download --auto --prefix=/opt/nginx'
 
 template '/etc/init.d/nginx' do
   source 'init.d.erb'
