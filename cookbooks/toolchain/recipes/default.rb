@@ -33,6 +33,9 @@ libpcre3
 libpcre3-dev 
 libpcrecpp0 
 libssl0.9.8 
+libreadline5
+libreadline5-dev
+
 ]
 include_recipe "openssl"
 
