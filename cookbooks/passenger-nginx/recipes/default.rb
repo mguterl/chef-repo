@@ -18,15 +18,24 @@ template '/etc/init.d/nginx' do
 end  
 
 
-template "/opt/nginx/conf/nginx.conf" do
-  source "nginx.conf.erb"
-  mode   "755"
+template '/opt/nginx/conf/nginx.conf' do
+  source 'nginx.conf.erb'
+  mode   '755'
 end
 
-execute "/usr/sbin/update-rc.d -f nginx defaults" 
-execute "/etc/init.d/nginx start" 
+execute '/usr/sbin/update-rc.d -f nginx defaults'
+execute '/etc/init.d/nginx start'
 
 
-directory "/opt/nginx/sites-available" 
-directory "/opt/nginx/sites-enabled" 
+directories = %w[
+/opt/nginx/sites-available
+/opt/nginx/sites-enabled
+]
+
+directories.each do |dir|
+  directory dir do
+        only_if do ! File.exists?(dir) end
+  end
+end
+
 

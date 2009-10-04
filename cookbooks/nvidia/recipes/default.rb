@@ -18,3 +18,5 @@ nvidia-settings
 packages.each do |pkg|
   package pkg
 end
+
+execute 'nvidia-xconfig'
