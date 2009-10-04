@@ -33,10 +33,6 @@ end
 
 directories = %w[
 /home/sid137/tmp
-/home/sid137/rackspace/biblio
-/home/sid137/rackspace/cred
-/home/sid137/rackspace/elib
-/home/sid137/rackspace/phddata
 ]
 
 directories.each do |dir| 
@@ -46,7 +42,6 @@ directories.each do |dir|
 	group 'sid137'
 	mode  '0755'
 	only_if do ! File.exists?(dir) end	
-	ignore_failure true
   end
 end
 

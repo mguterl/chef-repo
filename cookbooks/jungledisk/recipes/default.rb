@@ -32,7 +32,23 @@ group "fuse" do
   members "sid137"
 end
 
-execute "mkdir -p /home/sid137/rackspace/elib /home/sid137/rackspace/cred /home/sid137/rackspace/biblio /home/sid137/rackspace/phddata"
+directories = %w[
+/home/sid137/rackspace/biblio
+/home/sid137/rackspace/cred
+/home/sid137/rackspace/elib
+/home/sid137/rackspace/phddata
+]
+
+directories.each do |dir|
+  directory dir do
+    recursive true
+    owner 'sid137'
+    group 'sid137'
+    mode  '0755'
+    only_if do ! File.exists?(dir) end
+  end
+end
+
 
 directory "/home/sid137/.jungledisk"
 
