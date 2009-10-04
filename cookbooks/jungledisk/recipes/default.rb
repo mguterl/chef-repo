@@ -46,6 +46,7 @@ directories.each do |dir|
     group 'sid137'
     mode  '0755'
     only_if do ! File.exists?(dir) end
+	ignore_failure true
   end
 end
 
