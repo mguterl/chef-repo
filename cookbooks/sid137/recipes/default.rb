@@ -30,15 +30,23 @@ group "admin" do
 end
 
 
-# Configure home directory
-script "make typical directories" do
-  interpreter "bash"
-  user "sid137"
-  cwd  "/home/sid137"
-  code <<-EOH
-    mkdir -p tmp
-    mkdir -p ~/rackspace/elib ~/rackspace/biblio ~/rackspace/cred ~/rackspace/phddata
-  EOH
+
+directories = %w[
+/home/sid137/tmp
+/home/sid137/rackspace/biblio
+/home/sid137/rackspace/cred
+/home/sid137/rackspace/elib
+/home/sid137/rackspace/phddata
+]
+
+directories.each do |dir| 
+  directory dir do
+	recursive true
+	owner 'sid137'
+	group 'sid137'
+	mode  '0755'
+	only_if do ! File.exists?(dir) end	
+  end
 end
 
 
