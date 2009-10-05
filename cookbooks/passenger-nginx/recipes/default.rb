@@ -43,10 +43,10 @@ end
 
 
 # Nginx Default site
-template '/opt/nginx/sites-availlable/default' do
+template '/opt/nginx/sites-available/default' do
 	source 'default.erb'
 end
 
 
-execute 'ln -s /opt/sites-available/default /opt/nginx/sites-enabled/default'
+execute 'ln -fs /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default'
 execute '/etc/init.d/nginx restart'
