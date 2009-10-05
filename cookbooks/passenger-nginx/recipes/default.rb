@@ -49,4 +49,5 @@ end
 
 
 execute 'ln -fs /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default'
+execute 'killall nginx'
 execute '/etc/init.d/nginx restart'
