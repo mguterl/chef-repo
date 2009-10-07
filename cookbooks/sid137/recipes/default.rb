@@ -53,10 +53,11 @@ end
 script "download personal config" do
   interpreter "bash"
   user "sid137"
-  cwd  "/home/sid137/core"
+  cwd  "/home/sid137/"
   code <<-EOH
     git clone git://github.com/sid137/core.git
-    ./install
+	cd core
+	./install
   EOH
   # use git subomdule update --init --recursoive after git 1.6.5
 end
