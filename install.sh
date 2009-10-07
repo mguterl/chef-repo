@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 #run installer with
-# wget http://tiny.cc/chefconfig; bash -x install.sh role 
+# wget tiny.cc/chefconfig; bash -x install.sh role 
 # role is a json file that describes a roles or runlist to execute.
 
 role=${1:-test.json}
