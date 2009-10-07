@@ -48,6 +48,7 @@ end
 
 
 
+
 # Set preferences
 
 script "download personal config" do
@@ -78,3 +79,11 @@ execute 'find /home/sid137/.* -exec chgrp sid137 {} \;'
 execute 'find /home/sid137/.* -exec chown sid137 {} \;'
 
 
+# erase useless default directories
+
+execute 'rmdir Documents    || true'
+execute 'rmdir Music        || true'
+execute 'rmdir Pictures     || true'
+execute 'rmdir Public       || true'
+execute 'rmdir Templates    || true'
+execute 'rmdir Videos       || true'
