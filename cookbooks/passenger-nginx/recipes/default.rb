@@ -19,9 +19,7 @@ directories = %w[
 ]
 
 directories.each do |dir|
-  directory dir do
-        only_if do ! File.exists?(dir) end
-  end
+  directory dir unless File.exists?(dir) 
 end
 
 
@@ -49,5 +47,5 @@ end
 
 
 execute 'ln -fs /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default'
-execute 'killall nginx'
+execute 'killall nginx || true'
 execute '/etc/init.d/nginx restart'
