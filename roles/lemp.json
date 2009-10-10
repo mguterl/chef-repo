@@ -1,13 +1,12 @@
 {
-  "name": "lamp",
+  "name": "lemp",
   "default_attributes": { },
   "override_attributes": { },
   "json_class": "Chef::Role",
-  "description": "LAMP Server setup - Linux, nGinx, MySQL, PHP",
+  "description": "LEMP Server setup - Linux, nGinx, MySQL, PHP",
   "chef_type": "role",
   "recipes": [
-    "nginx",
     "mysql",
-    "php::nginx"
+    "passenger-nginx"
    ]    
 }

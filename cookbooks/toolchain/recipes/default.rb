@@ -9,34 +9,46 @@
 
 
 packages = %w[
-build-essential
-binutils-doc
+curl
+wget 
+
 autoconf
 automake
-libtool 
-help2man
-flex
+binutils-doc
 bison
+build-essential
+flex
+help2man
+libtool 
+patch
 ruby1.8-dev
-libxml2
-libxml2-dev  
-libxslt1.1
-libxslt1-dev  
 zlib1g 
 zlib1g-dev 
 zlibc
-wget 
-curl
 
 libc6 
+libevent-dev
+libbz2-dev
 libpcre3 
 libpcre3-dev 
 libpcrecpp0 
 libssl0.9.8 
 libreadline5
 libreadline5-dev
+libxml2
+libxml2-dev  
+libxslt1.1
+libxslt1-dev  
+libsyck0-dev
 
+libmcrypt-dev 
 ]
+#libmhash-dev 
+#libmhash2 
+#libcurl4-openssl-dev 
+#libpq-dev 
+#libpq5 
+
 include_recipe "openssl"
 
 packages.each do |pkg|

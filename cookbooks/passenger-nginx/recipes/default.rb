@@ -8,7 +8,7 @@
 
 include_recipe "openssl"
 include_recipe "rails"
-
+include_recipe 'php::lighttpd'
 
 execute '/var/lib/gems/1.8/bin/passenger-install-nginx-module --auto-download --auto --prefix=/opt/nginx'
 
@@ -16,12 +16,20 @@ execute '/var/lib/gems/1.8/bin/passenger-install-nginx-module --auto-download --
 directories = %w[
 /opt/nginx/sites-available
 /opt/nginx/sites-enabled
+/var/www
 ]
 
 directories.each do |dir|
   directory dir unless File.exists?(dir) 
 end
 
+# Disable lighttpd service
+#
+service 'lighttpd' do
+	action [ :stop, :disable ]
+end
+
+execute 'update-rc.d -f lighttpd remove || true'
 
 
 # Nginx service script
@@ -47,5 +55,24 @@ end
 
 
 execute 'ln -fs /opt/nginx/sites-available/default /opt/nginx/sites-enabled/default'
+
+template '/etc/init.d/php-fastcgi' do
+	source 'php-fastcgi.erb'
+	mode '755'
+end
+
+template '/etc/default/php-fastcgi' do
+	source 'default.php-fastcgi.erb'
+end
+
+execute 'update-rc.d php-fastcgi defaults'
+
+
+service 'php-fastcgi' do
+	enabled true
+	action [ :enable, :restart ]
+end
+
+
 execute 'killall nginx || true'
 execute '/etc/init.d/nginx restart'

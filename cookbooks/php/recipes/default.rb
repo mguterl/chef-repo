@@ -26,8 +26,10 @@ packages.each do |pkg|
 end
 
 
-template "/var/www/index.php" do
-  source "index.php.erb"
+directory '/var/www'
+
+template '/var/www/index.php' do
+  source 'index.php.erb'
   mode "755"
 end
 
