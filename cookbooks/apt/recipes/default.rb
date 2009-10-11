@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 
 case node[:platform] 
-when "Debian"
+when "debian"
 	template '/etc/apt/sources.list.d/lenny.non-free.list' do
 		source 'lenny.non-free.list.erb'
 	end
