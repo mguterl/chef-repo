@@ -13,6 +13,11 @@ template "/etc/lighttpd/lighttpd.conf" do
   source "lighttpd.conf.erb"
 end
 
+
+execute 'killall nginx || true'
+execute 'killall lighttpd ||  true'
+
+
 service "lighttpd" do
 	enabled true
 	supports :status => false, :restart => true, :reload => true

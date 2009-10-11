@@ -10,7 +10,16 @@ include_recipe "openssl"
 include_recipe "rails"
 include_recipe 'php::lighttpd'
 
-execute '/var/lib/gems/1.8/bin/passenger-install-nginx-module --auto-download --auto --prefix=/opt/nginx'
+
+bash 'download nginx sources' do
+	cwd '/tmp'
+	code <<-EOH
+		wget -N http://sysoev.ru/nginx/nginx-0.7.62.tar.gz 
+		tar -xvvf nginx-0.7.62.tar.gz
+	EOH
+end
+
+execute '/var/lib/gems/1.8/bin/passenger-install-nginx-module --nginx-source-dir=/tmp/nginx-0.7.62 --auto --prefix=/opt/nginx --extra-configure-flags="--with-http_ssl_module  --with-http_dav_module --with-http_gzip_static_module --with-http_stub_status_module"'
 
 
 directories = %w[
@@ -29,7 +38,7 @@ service 'lighttpd' do
 	action [ :stop, :disable ]
 end
 
-execute 'update-rc.d -f lighttpd remove || true'
+#execute 'update-rc.d -f lighttpd remove || true'
 
 
 # Nginx service script
