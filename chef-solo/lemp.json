@@ -1,1 +1,1 @@
-{ "run_list": "role[lemp]"}
+{ "run_list": [ "role[server]", "role[lemp]" ] }

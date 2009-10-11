@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "default_attributes": { },
+  "override_attributes": { },
+  "json_class": "Chef::Role",
+  "description": "Debian  Base Serveer Setup",
+  "chef_type": "role",
+  "recipes": [
+    "apt",
+    "base",
+    "toolchain",
+	"sudo",
+	"zsh",
+    "upgrade"
+   ]    
+}
