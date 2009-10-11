@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: base
+# Cookbook Name:: base::desktop
 # Recipe:: default
 #
 # Copyright 2009, Sidney Burks
@@ -7,19 +7,18 @@
 # All rights reserved - Do Not Redistribute
 
 
-include_recipe "toolchain"
-include_recipe "zsh"
+include_recipe 'base'
 
 packages = %w[
-  coreutils
-  git-core
-  screen
-  screen-profiles
-  gzip
-  p7zip
-  p7zip-full
-  unzip
-  unrar
+  fuse-utils
+  hfsplus
+  hfsprogs
+  hfsutils
+  ntfs3g
+  ntfsprogs
+  libntfs-3g-dev
+  reiserfsprogs
+  lsof
 ]
 
 

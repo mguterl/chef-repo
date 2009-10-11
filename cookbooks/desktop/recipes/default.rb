@@ -5,7 +5,7 @@
 #
 # All rights reserved - Do Not Redistribute
 
-include_recipe "base"
+include_recipe "base::desktopp"
 include_recipe "hosts"
 
 include_recipe "jungledisk"

@@ -9,6 +9,8 @@
 
 
 include_recipe 'locales'
+include_recipe 'sudo' 
+
 
 packages = %w[
 curl
