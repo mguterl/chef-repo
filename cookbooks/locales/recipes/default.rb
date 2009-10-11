@@ -8,6 +8,6 @@
 
 package "locales"
 
-execute "sudo locale-gen en_GB.UTF-8"
-execute "/usr/sbin/update-locale LANG=en_GB.UTF-8"
+execute "locale-gen en_US.UTF-8 UTF-8"
+execute "/usr/sbin/update-locale LANG=en_US.UTF-8"
 

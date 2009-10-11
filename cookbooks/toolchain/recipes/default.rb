@@ -8,6 +8,8 @@
 #
 
 
+include_recipe 'locales'
+
 packages = %w[
 curl
 wget 
