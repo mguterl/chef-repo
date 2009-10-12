@@ -20,7 +20,10 @@ bash 'download nginx sources' do
 end
 
 execute 'export PATH=$PATH:/var/lib/gems/1.8/bin'
-execute '/var/lib/gems/1.8/bin/passenger-install-nginx-module --nginx-source-dir=/tmp/nginx-0.7.62 --auto --prefix=/opt/nginx --extra-configure-flags="--with-http_ssl_module  --with-http_dav_module --with-http_gzip_static_module --with-http_stub_status_module"'
+#execute '/var/lib/gems/1.8/bin/passenger-install-nginx-module --nginx-source-dir=/tmp/nginx-0.7.62 --auto --prefix=/opt/nginx --extra-configure-flags="--with-http_ssl_module  --with-http_dav_module --with-http_gzip_static_module --with-http_stub_status_module"'
+
+
+execute '/var/lib/gems/1.8/bin/passenger-install-nginx-module --auto-download --auto --prefix=/opt/nginx '
 
 
 directories = %w[
