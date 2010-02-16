@@ -6,12 +6,26 @@
 #
 # All rights reserved - Do Not Redistribute
 
-execute "gem sources -a http://gems.github.com"
+execute "gem sources -a http://gemcutter.org"
 
 include_recipe "ruby" 
 include_recipe "sqlite"
 
 gems = %w[ 
+tzinfo 
+builder 
+memcache-client 
+rack 
+rack-test 
+rack-mount 
+erubis 
+mail 
+text-format 
+thor
+railties --pre
+rails --pre
+i18n
+bundler
 rails
 authlogic
 bcrypt-ruby

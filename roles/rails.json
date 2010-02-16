@@ -1,0 +1,13 @@
+{
+  "name": "rails",
+  "default_attributes": { },
+  "override_attributes": { },
+  "json_class": "Chef::Role",
+  "description": "Rails Web Server - passenger-nGinx, MongoDB, Rails",
+  "chef_type": "role",
+  "recipes": [
+    "rails",
+    "passenger-nginx",
+    "mongodb"
+   ]    
+}
