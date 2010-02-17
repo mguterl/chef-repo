@@ -25,6 +25,9 @@ apt-get update -q -m -y
 
 curl http://apt.opscode.com/packages@opscode.com.gpg.key | apt-key add -
 
+# Install core
+$REPO/scripts/core.sh
+
 # Install ruby, rubygems, and chef
 $REPO/scripts/install-rvm.sh
 aptitude install ohai chef -y
