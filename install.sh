@@ -5,6 +5,7 @@
 # role is a json file that describes a roles or runlist to execute.
 
 role=${1:-test.json}
+apt-get update -q -m -y
 
 # Configure locale settings
 apt-get install locales  -y
@@ -18,7 +19,7 @@ apt-get update -q -m -y
 
 curl http://apt.opscode.com/packages@opscode.com.gpg.key | apt-key add -
 # Install ruby, rubygems, and chef
-source scripts/install-rvm.sh
+source ./scripts/install-rvm.sh
 aptitude install ohai chef -y
 
 
