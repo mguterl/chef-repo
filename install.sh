@@ -34,7 +34,7 @@ $REPO/scripts/install-core.sh
 $REPO/scripts/install-ruby.sh
 $REPO/scripts/install-rubygems.sh
 
-aptitude install ohai chef -y --force-yes
+aptitude install ohai chef -y 
 
 # Run server ssetup
 cd $REPO/chef-solo/
