@@ -4,7 +4,7 @@
 # wget tiny.cc/chefconfig; bash -x install.sh role 
 # role is a json file that describes a roles or runlist to execute.
 
-export REPO=/tmp/chef-repo/
+export REPO=/tmp/chef-repo
 role=${1:-test.json}
 apt-get update -q -m -y
 
