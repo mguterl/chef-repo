@@ -18,25 +18,22 @@ apt-get install sudo curl git-core -y
 rm -rf $REPO
 git clone git://github.com/sid137/chef-repo.git $REPO
 
-# Install Chef sources
-echo "deb http://apt.opscode.com/ jaunty universe" >  /etc/apt/sources.list.d/opscode.list
-echo "deb http://apt.opscode.com/ karmic universe" >> /etc/apt/sources.list.d/opscode.list
-echo "deb http://apt.opscode.com/ debian contrib"  >> /etc/apt/sources.list.d/opscode.list
-apt-get update -q -m -y
-
-curl http://apt.opscode.com/packages@opscode.com.gpg.key | apt-key add -
-apt-get update -q -m -y
-
 # Install core
 $REPO/scripts/install-core.sh
 
-# Install ruby, rubygems, and chef
-$REPO/scripts/install-ruby.sh
-$REPO/scripts/install-rubygems.sh
+# Install Chef sources
+echo "deb http://apt.opscode.com/ karmic universe" >> /etc/apt/sources.list.d/opscode.list
+echo "deb http://apt.opscode.com/ debian contrib"  >> /etc/apt/sources.list.d/opscode.list
+curl http://apt.opscode.com/packages@opscode.com.gpg.key | apt-key add -
+apt-get update -q -m -y
 
-#aptitude install ohai chef -y 
-gem sources -a http://gems.opscode.com
-gem install chef
+
+# Install ruby, rubygems, and chef
+#$REPO/scripts/install-ruby.sh
+
+
+aptitude install ohai chef rubygems -y 
+$REPO/scripts/install-rubygems.sh
 
 # Run server ssetup
 cd $REPO/chef-solo/
