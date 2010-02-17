@@ -1,3 +1,4 @@
+#!/bin/bash -x
 
 # Installl rvm
 mkdir -p ~/.rvm/src/ 
