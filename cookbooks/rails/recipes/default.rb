@@ -36,7 +36,7 @@ railties
 rails 
 ]
 
-prereleases = %w [ rails railties ]
+prereleases = %w[ rails railties ]
 
 gems.each do |g|
   gem, ver = g.split(',')
