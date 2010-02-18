@@ -5,7 +5,6 @@
 # role is a json file that describes a roles or runlist to execute.
 
 export REPO=/tmp/chef-repo
-
 role=${1:-test.json}
 apt-get update -q -m -y
 
@@ -13,19 +12,30 @@ apt-get update -q -m -y
 apt-get install locales  -y
 echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && /usr/sbin/locale-gen
 
-apt-get install git-core -y
+apt-get install sudo curl git-core -y
 
 # Download server config
 rm -rf $REPO
 git clone git://github.com/sid137/chef-repo.git $REPO
 
-# Install core, ruby, rubygems, and chef
+# Install core
 $REPO/scripts/install-core.sh
-$REPO/scripts/install-ruby.sh
-$REPO/scripts/install-rubygems.sh
-$REPO/scripts/install-chef.sh
 
-# Run server setup
+# Install Chef sources
+echo "deb http://apt.opscode.com/ karmic universe" >> /etc/apt/sources.list.d/opscode.list
+echo "deb http://apt.opscode.com/ debian contrib"  >> /etc/apt/sources.list.d/opscode.list
+curl http://apt.opscode.com/packages@opscode.com.gpg.key | apt-key add -
+apt-get update -q -m -y
+
+
+# Install ruby, rubygems, and chef
+#$REPO/scripts/install-ruby.sh
+
+
+aptitude install ohai chef rubygems -y 
+$REPO/scripts/install-rubygems.sh
+
+# Run server ssetup
 cd $REPO/chef-solo/
 ./solo $role.json
 
