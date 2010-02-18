@@ -8,45 +8,37 @@
 
 execute "gem sources -a http://gemcutter.org"
 
-include_recipe "ruby" 
+#include_recipe "ruby" 
 include_recipe "sqlite"
 
+
 gems = %w[ 
+rake
+bcrypt-ruby
+bundler
+
+
 tzinfo 
 builder 
 memcache-client 
 rack 
 rack-test 
-rack-mount 
+rack-mount,0.4.0
 erubis 
 mail 
 text-format 
 thor
+i18n
 railties --pre
 rails --pre
-i18n
-bundler
+
 rails
-authlogic
-bcrypt-ruby
-capistrano
-chriseppstein-compass
-cucumber
-facebooker
-haml
-mislav-will_paginate
-mongrel
-nokogiri
-passenger
-remarkable
-remarkable_rails
-rspec
-rspec-rails
-staticmatic
 ]
 
-gems.each do |gem|
+
+gems.each do |g|
+  gem, ver = g.split(',')
   gem_package gem  do
-#    source "http://gems.github.com"
+    version ver if ver
   end
 end

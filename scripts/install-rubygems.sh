@@ -10,4 +10,5 @@ else
   ruby setup.rb
   gem update --system
   cd .. && rm -rf /tmp/rubygems*
+  gem sources -a http://gemcutter.org
 fi
