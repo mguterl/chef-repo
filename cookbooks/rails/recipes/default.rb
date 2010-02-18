@@ -42,6 +42,6 @@ gems.each do |g|
   gem, ver = g.split(',')
   gem_package gem  do
     version ver if ver
-    options '--pre' if prerelease.include?(gem)
+    options '--pre' if prereleases.include?(gem)
   end
 end
