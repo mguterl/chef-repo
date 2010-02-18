@@ -8,7 +8,9 @@
 
 execute "gem sources -a http://gemcutter.org"
 
-#include_recipe "ruby" 
+# Assume ruby is already properly installed
+# to avoid using distribution packages
+
 include_recipe "sqlite"
 
 
@@ -29,16 +31,17 @@ mail
 text-format 
 thor
 i18n
-railties --pre
-rails --pre
+railties 
 
-rails
+rails 
 ]
 
+prereleases = %w [ rails railties ]
 
 gems.each do |g|
   gem, ver = g.split(',')
   gem_package gem  do
     version ver if ver
+    options '--pre' if prerelease.include?(gem)
   end
 end

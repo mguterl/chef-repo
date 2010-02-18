@@ -25,7 +25,6 @@ flex
 help2man
 libtool 
 patch
-ruby1.8-dev
 zlib1g 
 zlib1g-dev 
 zlibc
