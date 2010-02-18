@@ -31,9 +31,6 @@ mail
 text-format 
 thor
 i18n
-railties\ --pre 
-
-rails\ --pre
 ]
 
 
@@ -43,3 +40,6 @@ gems.each do |g|
     version ver if ver
   end
 end
+
+execute 'gem install railties --pre' 
+execute 'gem install rails --pre'
