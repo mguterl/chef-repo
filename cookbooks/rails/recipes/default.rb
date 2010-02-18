@@ -31,17 +31,15 @@ mail
 text-format 
 thor
 i18n
-railties 
+railties\ --pre 
 
-rails 
+rails\ --pre
 ]
 
-prereleases = %w[ rails railties ]
 
 gems.each do |g|
   gem, ver = g.split(',')
   gem_package gem  do
     version ver if ver
-    options '--pre' if prereleases.include?(gem)
   end
 end
