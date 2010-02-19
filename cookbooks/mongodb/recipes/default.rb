@@ -20,5 +20,5 @@ execute "apt-get update -q -m -f -y"
 
 package "mongodb" do
 	action :install
-#	options "--allow-untrusted"
+	options "--force-yes"
 end
