@@ -24,12 +24,20 @@ fi
 
 set -e
 
+d_stop() {
+  kill -QUIT `cat /opt/nginx/logs/$NAME.pid` || echo -n " not running"
+}
+
+
 case "$1" in
   start)
         echo -n "Starting $DESC: "
         start-stop-daemon --start --quiet --oknodo --pidfile /opt/nginx/logs/$NAME.pid \
                 --exec $DAEMON -- $DAEMON_OPTS
-        echo "$NAME."
+	if [[ -e /opt/nginx/logs/$NAME.pid ]] 
+	  d_stop
+        fi
+	echo "$NAME."
         ;;
   stop)
         echo -n "Stopping $DESC: "
@@ -41,6 +49,9 @@ case "$1" in
         echo -n "Restarting $DESC: "
         start-stop-daemon --stop --quiet --oknodo --pidfile \
                 /opt/nginx/logs/$NAME.pid --exec $DAEMON
+	if [[ -e /opt/nginx/logs/$NAME.pid ]] 
+	  d_stop
+        fi
         sleep 1
         start-stop-daemon --start --quiet --oknodo --pidfile \
                 /opt/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
