@@ -33,6 +33,9 @@ directories = %w[
 /var/www
 ]
 
+execute 'chmod a+rw /opt/nginx/sites-available'
+execute 'chmod a+rw /opt/nginx/sites-enabled'
+
 directories.each do |dir|
   directory dir unless File.exists?(dir) 
 end
