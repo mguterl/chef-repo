@@ -7,7 +7,7 @@
   "chef_type": "role",
   "recipes": [
     "rails",
-    "passenger-nginx",
+    "passenger-nginx::rails",
     "mongodb"
    ]    
 }
