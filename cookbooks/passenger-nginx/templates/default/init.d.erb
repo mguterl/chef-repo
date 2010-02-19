@@ -34,7 +34,7 @@ case "$1" in
         echo -n "Starting $DESC: "
         start-stop-daemon --start --quiet --oknodo --pidfile /opt/nginx/logs/$NAME.pid \
                 --exec $DAEMON -- $DAEMON_OPTS
-	if [[ -e /opt/nginx/logs/$NAME.pid ]] 
+	if [[ -e /opt/nginx/logs/$NAME.pid ]] ; then
 	  d_stop
         fi
 	echo "$NAME."
@@ -49,7 +49,7 @@ case "$1" in
         echo -n "Restarting $DESC: "
         start-stop-daemon --stop --quiet --oknodo --pidfile \
                 /opt/nginx/logs/$NAME.pid --exec $DAEMON
-	if [[ -e /opt/nginx/logs/$NAME.pid ]] 
+	if [[ -e /opt/nginx/logs/$NAME.pid ]] ; then
 	  d_stop
         fi
         sleep 1
