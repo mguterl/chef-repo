@@ -7,8 +7,8 @@
   "chef_type": "role",
   "recipes": [
     "apt",
-   	"lowmem",
-	"base::server",
+    "lowmem",
+    "base::server",
     "upgrade"
    ]    
 }
