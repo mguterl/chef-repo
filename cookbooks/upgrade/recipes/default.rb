@@ -8,4 +8,4 @@
 
 # Stopped doing dist-upgrade..  too dangerous
 # execute 'aptitude dist-upgrade -q -m -f -y'
-execute 'aptitude upgrade -q -m -f -y'
+execute 'aptitude upgrade -f -y'

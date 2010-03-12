@@ -7,13 +7,13 @@
 export REPO=/tmp/chef-repo
 
 role=${1:-test.json}
-aptitude update -q -m -y
+aptitude update -f -y
 
 # Configure locale settings
-aptitude install locales  -y
+aptitude install locales  -f -y
 echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && /usr/sbin/locale-gen
 
-aptitude install git-core -y
+aptitude install git-core -f -y
 
 # Download server config
 rm -rf $REPO
