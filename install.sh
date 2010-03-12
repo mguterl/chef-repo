@@ -7,19 +7,20 @@
 export REPO=/tmp/chef-repo
 
 role=${1:-test.json}
-apt-get update -q -m -y
+aptitude update -q -m -y
 
 # Configure locale settings
-apt-get install locales  -y
+aptitude install locales  -y
 echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen && /usr/sbin/locale-gen
 
-apt-get install git-core -y
+aptitude install git-core -y
 
 # Download server config
 rm -rf $REPO
 git clone git://github.com/sid137/chef-repo.git $REPO
 
 # Install core, ruby, rubygems, and chef
+$REPO/scripts/aptitude-hold.sh
 $REPO/scripts/install-core.sh
 $REPO/scripts/install-ruby.sh
 $REPO/scripts/install-rubygems.sh
