@@ -16,7 +16,7 @@ when "debian"
 end
 
 
-execute "apt-get update -q -m -f -y"
+execute "aptitude update -f -y"
 
 package "mongodb" do
 	action :install
