@@ -31,7 +31,7 @@ cd $REPO/chef-solo/
 ./solo $role.json
 
 
-# ZSH function I use to launch an installtion 
+# ZSH function I use to launch an installation 
 
 # function initialize {
 #         rm .ssh/known_hosts
