@@ -1,11 +1,16 @@
 #!/bin/bash -x
 
-# Installl rvm
-mkdir -p ~/.rvm/src/ 
+# Install rvm
+mkdir -p /opt/rvm/src/ 
+cd /opt/rvm/src
 rm -rf ./rvm/ 
-cd ~/.rvm/src
 git clone --depth 1 git://github.com/wayneeseguin/rvm.git
 cd rvm && ./install
+
+
+# Configure System /etc/profile and/or /etc/bash.bashrc
+echo 'if [[ -s /opt/rvm/scripts/rvm ]] ; then source /opt/rvm/scripts/rvm ;
+fi' > /etc/profile
 
 # Install common rubies
 source $HOME/.rvm/scripts/rvm
