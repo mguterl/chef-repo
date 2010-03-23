@@ -14,6 +14,6 @@ fi' > /etc/profile
 
 # Install common rubies
 source $HOME/.rvm/scripts/rvm
-rvmsudo install ree 
+rvm install ree 
 rvm ree --default
 
