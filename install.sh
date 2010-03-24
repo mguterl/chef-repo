@@ -22,9 +22,10 @@ git clone git://github.com/sid137/chef-repo.git $REPO
 # Install core, ruby, rubygems, and chef
 source $REPO/scripts/aptitude-hold.sh
 source $REPO/scripts/install-core.sh
-#$REPO/scripts/install-ruby.sh
-#$REPO/scripts/install-rubygems.sh
-source $REPO/scripts/install-rvm.sh
+$REPO/scripts/install-ruby.sh
+
+$REPO/scripts/install-rubygems.sh
+#source $REPO/scripts/install-rvm.sh
 source $REPO/scripts/install-chef.sh
 
 
