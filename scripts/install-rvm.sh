@@ -9,6 +9,7 @@ git clone --depth 1 git://github.com/wayneeseguin/rvm.git
 cd rvm
 ./install --auto
 
+source /etc/profile
 
 #mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone --depth 1
 #git://github.com/wayneeseguin/rvm.git && cd rvm && ./install --auto
@@ -17,6 +18,4 @@ cd rvm
 # Install common rubies
 rvm install 1.8.7 
 rvm 1.8.7 --default
-rvm 1.8.7 --default
 
-source /etc/profile
