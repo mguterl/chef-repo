@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 # Create /etc/rvmrc
-#echo 'export rvm_path=/opt/rvm' > /etc/rvmrc
+echo 'export rvm_path=/opt/rvm' > /etc/rvmrc
 
 
 # Install rvm
@@ -9,7 +9,7 @@ mkdir -p /opt/rvm/src/
 cd /opt/rvm/src
 rm -rf ./rvm/ 
 git clone --depth 1 git://github.com/wayneeseguin/rvm.git
-cd rvm && ./install --auto --prefix=/opt/rvm/
+cd rvm && ./install --auto 
 
 
 # Configure System /etc/profile and/or /etc/bash.bashrc
