@@ -6,6 +6,7 @@ mkdir -p /opt/rvm/src/
 cd /opt/rvm/src
 rm -rf ./rvm/ 
 git clone --depth 1 git://github.com/wayneeseguin/rvm.git
+cd rvm
 ./install --auto
 
 source /etc/profile
